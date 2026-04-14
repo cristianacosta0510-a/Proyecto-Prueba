@@ -1,0 +1,44 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Smart City XR | Redes IoT{% endblock %}
+
+{% block contenido %}
+<div style="padding-top: 100px; min-height: 80vh;">
+    <!-- HEROS SECTION -->
+    <section class="relative pt-5 pb-5 overflow-hidden">
+        <!-- Fondo -->
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: url('/media/cursos_img/catedral_panoramica.png') center/cover; opacity: 0.15; z-index: -1;"></div>
+        
+        <div class="container text-center text-white">
+            <span class="badge badge-outline-blue mb-3">Infraestructura Tecnológica</span>
+            <h1 class="mb-3 font-bold" style="font-size: 3rem;">Redes e Integración <span class="text-blue">IoT</span></h1>
+            <p class="text-muted mx-auto" style="max-width: 600px; font-size: 1.1rem;">
+                Visualización de conectividad en tiempo real. Análisis de espectro, antenas 5G y ubicación estratégica de sensores urbanos utilizando nuestro Gemelo Digital.
+            </p>
+            
+            <div class="row d-flex justify-content-center gap-4 mt-5">
+                <div class="glass-panel" style="width: 250px;">
+                    <i class="fa-solid fa-wifi text-blue mb-2" style="font-size: 2rem;"></i>
+                    <h3 class="font-bold text-white mb-1">99.9%</h3>
+                    <p class="text-sm text-muted m-0">Uptime Garantizado</p>
+                </div>
+                <div class="glass-panel" style="width: 250px;">
+                    <i class="fa-solid fa-microchip text-blue mb-2" style="font-size: 2rem;"></i>
+                    <h3 class="font-bold text-white mb-1">Cientos</h3>
+                    <p class="text-sm text-muted m-0">Sensores Integrados</p>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <a href="{% url 'contacto' %}" class="btn-cyber btn-hero" style="padding: 15px 40px; font-size: 1.1rem;">
+                    Implementar Sensores IoT <i class="fa-solid fa-satellite-dish ml-2"></i>
+                </a>
+            </div>
+
+            <div class="mt-5 text-left display-flex justify-content-center text-center">
+                 <a href="{% url 'servicios' %}" class="text-muted" style="text-decoration: underline;"><i class="fa-solid fa-arrow-left"></i> Volver a Servicios</a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

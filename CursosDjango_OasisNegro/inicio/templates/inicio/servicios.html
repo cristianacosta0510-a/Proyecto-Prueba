@@ -1,0 +1,88 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Smart City XR | Servicios{% endblock %}
+
+{% block contenido %}
+<div style="padding-top: 100px; min-height: 80vh;">
+    <section class="pt-5 pb-5">
+        <div class="container">
+            <h2 class="text-center text-white mb-3" style="font-size: 2.8rem;">Hub Central de <span class="text-neon">Servicios</span></h2>
+            <p class="text-center text-muted mb-5" style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Navega por nuestra plataforma de visualización 3D interactiva y selecciona un apartado para analizar el gemelo digital a detalle.</p>
+            
+            <div class="nav-pills justify-content-center mb-5" id="filtros-servicios">
+                <span class="active" data-filter="all">Todos</span>
+                <span data-filter="infra">Infraestructura</span>
+                <span data-filter="verdes">Áreas Verdes</span>
+                <span data-filter="tech">Tecnología</span>
+            </div>
+
+            <div class="features-grid" id="grid-servicios">
+                
+                <a href="{% url 'servicio_vial' %}" class="servicio-card" data-cat="infra" style="text-decoration: none;">
+                    <div class="control-panel-item">
+                        <img src="/media/cursos_img/city_digital_scan.png" alt="Infraestructura">
+                        <div class="control-panel-overlay">
+                            <h4 class="text-white m-0">Planificación Vial</h4>
+                            <p class="text-sm m-0 text-neon">Simulación 3D <i class="fa-solid fa-arrow-right ml-2 text-white" style="float: right;"></i></p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="{% url 'servicio_parques' %}" class="servicio-card" data-cat="verdes" style="text-decoration: none;">
+                    <div class="control-panel-item">
+                        <img src="/media/cursos_img/smart_park_3d.png" alt="Áreas Verdes">
+                        <div class="control-panel-overlay">
+                            <h4 class="text-white m-0">Parques Inteligentes</h4>
+                            <p class="text-sm m-0 text-neon">Gestión Hídrica <i class="fa-solid fa-arrow-right ml-2 text-white" style="float: right;"></i></p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="{% url 'servicio_iot' %}" class="servicio-card" data-cat="tech" style="text-decoration: none;">
+                    <div class="control-panel-item">
+                        <img src="/media/cursos_img/wireframe_map.png" alt="Tecnología">
+                        <div class="control-panel-overlay">
+                            <h4 class="text-white m-0">Redes IoT</h4>
+                            <p class="text-sm m-0 text-neon">Sensores Urbanos <i class="fa-solid fa-arrow-right ml-2 text-white" style="float: right;"></i></p>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+            
+            <div class="text-center mt-5">
+                 <a href="{% url 'catalogo' %}" class="btn-cyber" style="padding: 12px 30px;">Explorar Catálogo General</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const filtros = document.querySelectorAll("#filtros-servicios span");
+        const tarjetas = document.querySelectorAll(".servicio-card");
+
+        filtros.forEach(filtro => {
+            filtro.addEventListener("click", function() {
+                // Remove active class from all
+                filtros.forEach(f => f.classList.remove("active"));
+                // Add active to clicked
+                this.classList.add("active");
+
+                const cat = this.getAttribute("data-filter");
+
+                tarjetas.forEach(tarjeta => {
+                    if (cat === "all" || tarjeta.getAttribute("data-cat") === cat) {
+                        tarjeta.style.display = "block";
+                        // small animation trick
+                        tarjeta.style.opacity = "0";
+                        setTimeout(() => { tarjeta.style.opacity = "1"; tarjeta.style.transition = "opacity 0.5s ease"; }, 50);
+                    } else {
+                        tarjeta.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}

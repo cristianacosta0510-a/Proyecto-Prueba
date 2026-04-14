@@ -1,0 +1,53 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Smart City XR | Nosotros{% endblock %}
+
+{% block contenido %}
+<div style="padding-top: 100px;">
+    <section class="hero-intro text-center animate-fade-in relative"
+        style="padding: 60px 20px 80px 20px; background: linear-gradient(rgba(6, 11, 25, 0.8), rgba(6, 11, 25, 0.9)), url('/media/cursos_img/city_digital_scan.png') center/cover;">
+        <div class="container">
+            <h1 class="mb-4 text-gradient"
+                style="font-size: 3.5rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
+                Liderando el Urbanismo <br><span class="text-neon" style="-webkit-text-fill-color: var(--accent-neon);">del Futuro</span>
+            </h1>
+            <p class="text-muted mb-5 mx-auto" style="font-size: 1.25rem; max-width: 700px;">
+                Nuestra misión es revolucionar la planeación urbana digital utilizando el poder de las tecnologías inmersivas (XR), para construir Smart Cities más eficientes y conectadas.
+            </p>
+            
+            <h3 class="text-white mt-5 mb-4">Nuestro Equipo</h3>
+            <div class="features-grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="glass-panel team-card">
+                    <i class="fa-solid fa-vr-cardboard team-icon"></i>
+                    <h4 class="text-white">Christian</h4>
+                    <p class="text-neon text-sm">XR Lead Developer</p>
+                </div>
+                <div class="glass-panel team-card">
+                    <i class="fa-solid fa-headset team-icon"></i>
+                    <h4 class="text-white">Sebastian</h4>
+                    <p class="text-neon text-sm">Urban Planner</p>
+                </div>
+                <div class="glass-panel team-card">
+                    <i class="fa-solid fa-cubes team-icon"></i>
+                    <h4 class="text-white">Carlos</h4>
+                    <p class="text-neon text-sm">3D Modeler</p>
+                </div>
+                <div class="glass-panel team-card">
+                    <i class="fa-solid fa-network-wired team-icon"></i>
+                    <h4 class="text-white">Renata</h4>
+                    <p class="text-neon text-sm">Data Analyst</p>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 900px) {
+                    .features-grid { grid-template-columns: repeat(2, 1fr) !important; }
+                }
+                @media (max-width: 500px) {
+                    .features-grid { grid-template-columns: 1fr !important; }
+                }
+            </style>
+        </div>
+    </section>
+</div>
+{% endblock %}

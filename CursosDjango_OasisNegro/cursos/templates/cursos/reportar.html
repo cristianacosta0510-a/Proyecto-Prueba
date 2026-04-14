@@ -1,0 +1,63 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Smart City XR | Reportar Problema{% endblock %}
+
+{% block contenido %}
+<style>
+    .form-container {
+        background: rgba(10, 25, 55, 0.4);
+        border: 1px solid rgba(0, 180, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 40px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .form-control {
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        padding: 12px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .form-control:focus {
+        outline: none;
+        border-color: #32CD32;
+        box-shadow: 0 0 10px rgba(50, 205, 50, 0.3);
+    }
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #e2f1ff;
+    }
+</style>
+
+<div class="container pt-5 pb-5" style="margin-top: 100px; min-height: 70vh;">
+    <h2 class="text-white text-center mb-4">Reportar Nuevo Problema</h2>
+    <p class="text-muted text-center mb-5">Describe la situación para que la comunidad pueda votar por su pronta acción.</p>
+    
+    <div class="form-container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.titulo.id_for_label }}">Título del Problema</label>
+                {{ form.titulo }}
+            </div>
+            <div class="form-group mt-3">
+                <label for="{{ form.descripcion.id_for_label }}">Descripción o Detalles</label>
+                {{ form.descripcion }}
+            </div>
+            
+            <div class="d-flex justify-content-between align-items-center mt-4 pt-3" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <a href="{% url 'reportes:lista_problemas' %}" class="text-muted" style="text-decoration: none;">Cancelar</a>
+                <button type="submit" class="btn-cyber" style="border-color: #32CD32; box-shadow: 0 0 10px rgba(50,205,50,0.3);">
+                    Enviar Reporte
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

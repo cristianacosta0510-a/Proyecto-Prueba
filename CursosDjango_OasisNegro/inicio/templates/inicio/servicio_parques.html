@@ -1,0 +1,43 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Smart City XR | Parques Inteligentes{% endblock %}
+
+{% block contenido %}
+<div style="padding-top: 100px; min-height: 80vh;">
+    <section class="relative pt-5 pb-5 overflow-hidden">
+        <!-- Fondo -->
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: url('/media/cursos_img/smart_park_3d.png') center/cover; opacity: 0.15; z-index: -1;"></div>
+        
+        <div class="container text-center text-white">
+            <span class="badge badge-green mb-3">Sustentabilidad</span>
+            <h1 class="mb-3 font-bold" style="font-size: 3rem;">Parques <span class="text-neon">Inteligentes</span></h1>
+            <p class="text-muted mx-auto" style="max-width: 600px; font-size: 1.1rem;">
+                Diseñamos ecosistemas autosustentables. Evaluamos gestión de captación de agua pluvial y redes neuronales para el cuidado automatizado de áreas verdes utilizando entornos virtuales.
+            </p>
+            
+            <div class="row d-flex justify-content-center gap-4 mt-5">
+                <div class="glass-panel" style="width: 250px;">
+                    <i class="fa-solid fa-droplet text-blue mb-2" style="font-size: 2rem;"></i>
+                    <h3 class="font-bold text-white mb-1">60%</h3>
+                    <p class="text-sm text-muted m-0">Ahorro de Agua</p>
+                </div>
+                <div class="glass-panel" style="width: 250px;">
+                    <i class="fa-solid fa-seedling text-neon mb-2" style="font-size: 2rem;"></i>
+                    <h3 class="font-bold text-white mb-1">Cero</h3>
+                    <p class="text-sm text-muted m-0">Emisiones de CO2</p>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <a href="{% url 'contacto' %}" class="btn-cyber btn-hero" style="padding: 15px 40px; font-size: 1.1rem; background: linear-gradient(135deg, rgba(40, 167, 69, 0.8) 0%, rgba(50, 205, 50, 0.8) 100%); border-color: rgba(50, 205, 50, 1);">
+                    Cotizar Parque Inteligente <i class="fa-solid fa-leaf ml-2"></i>
+                </a>
+            </div>
+
+            <div class="mt-5 text-left display-flex justify-content-center text-center">
+                 <a href="{% url 'servicios' %}" class="text-muted" style="text-decoration: underline;"><i class="fa-solid fa-arrow-left"></i> Volver a Servicios</a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Smart City XR | Blog Urbano{% endblock %}
+
+{% block contenido %}
+<div style="padding-top: 100px; min-height: 80vh;">
+    <section class="pt-5 pb-5">
+        <div class="container">
+            <h2 class="text-center text-white mb-5">Novedades <span class="text-neon">Smart City XR</span></h2>
+            <div class="masonry-grid">
+                <div class="masonry-item">
+                    <h4 class="text-white">Avances en Movilidad</h4>
+                    <p class="text-muted text-sm mt-2">Implementamos nuevos sensores en el centro histórico para reducir el tráfico vehicular en un 20% utilizando inteligencia artificial.</p>
+                    <span class="badge badge-outline-green mt-2">Noticias</span>
+                </div>
+                <div class="masonry-item">
+                    <img src="/media/cursos_img/smart_park_3d.png" alt="Blog" style="width:100%; border-radius: 6px;" class="mb-3">
+                    <h4 class="text-white">Caso de Éxito: Parque Verde</h4>
+                    <p class="text-muted text-sm mt-2">Uso de tecnologías inmersivas para simular la iluminación sustentable interactiva. Los ciudadanos logran reportar un incremento en confort.</p>
+                </div>
+                <div class="masonry-item">
+                    <h4 class="text-white">¿Qué es el Escaneo Digital?</h4>
+                    <p class="text-muted text-sm mt-2">Descubre cómo los drones y sistemas Lidar están mapeando nuestras ciudades para crear gemelos digitales perfectos y ayudar en la mitigación de problemas urbanos.</p>
+                    <span class="badge badge-outline-green mt-2">Educación</span>
+                </div>
+                 <div class="masonry-item">
+                    <h4 class="text-white">Actualización de Sistema V2.1</h4>
+                    <p class="text-muted text-sm mt-2">Hemos integrado nuevos filtros de visualización de datos de calidad del aire en tiempo real directamente sobre los modelos 3D y añadido un sistema de votación global.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

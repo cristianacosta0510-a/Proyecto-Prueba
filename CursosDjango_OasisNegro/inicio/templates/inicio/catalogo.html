@@ -1,0 +1,105 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Smart City XR | Catálogo de Proyectos{% endblock %}
+
+{% block contenido %}
+<div style="padding-top: 100px; min-height: 80vh;">
+    <!-- VER CATÁLOGO & SECCIONES ESPECIALIZADAS -->
+    <section class="pt-5 pb-5">
+        <div class="container">
+            <h2 class="text-center text-white mb-5">Modelos Urbanos y <span class="text-neon">Sustentabilidad</span></h2>
+            
+            <div class="text-center mb-5">
+                <a href="{% url 'reportes:lista_problemas' %}" class="btn-cyber" style="background: #32CD32; border-color: #32CD32; color: #000; font-weight: bold; padding: 12px 30px;">
+                    <i class="fa-solid fa-check-to-slot"></i> Votación de Prioridad
+                </a>
+            </div>
+            
+            <div class="dashboard-grid mb-5">
+                <!-- Columna Izquierda: Galería y Diseño 3D -->
+                <div>
+                    <h4 class="text-white mb-3"><i class="fa-solid fa-cube text-neon"></i> Visualizador 3D</h4>
+                    <div class="glass-panel p-0 overflow-hidden mb-4">
+                        <div class="canvas-3d-container">
+                            <img src="/media/cursos_img/smart_park_3d.png" style="width:100%; height:100%; object-fit:cover; opacity: 0.6; filter: hue-rotate(-10deg);">
+                            <div class="hotspot" style="top:30%; left:40%;" title="Sensor de Humedad"></div>
+                            <div class="hotspot" style="top:60%; left:70%;" title="Panel Solar Integrado"></div>
+                            <div class="hotspot" style="top:75%; left:20%;" title="Control IoT"></div>
+                            
+                            <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.8); padding: 10px 15px; border-radius: 8px; border-left: 3px solid var(--accent-neon);">
+                                <h5 class="text-white m-0 text-sm"><i class="fa-solid fa-arrows-spin text-neon"></i> Rotar Modelo 3D</h5>
+                                <p class="text-muted m-0" style="font-size: 0.75rem;">Arrastra para explorar el Ecoparque y sensores</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha: Dashboard y Gestión Digital -->
+                <div>
+                    <div class="glass-panel mb-4 text-left">
+                        <h4 class="text-white mb-3"><i class="fa-solid fa-leaf text-neon"></i> Optimización de Recursos</h4>
+                        <p class="text-sm text-muted">Ahorro y eficiencia proyectada (Mensual)</p>
+                        
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-between text-xs text-white mb-1">
+                                <span><i class="fa-solid fa-bolt text-blue"></i> Energía</span>
+                                <span class="text-neon font-bold">85% Eficiencia</span>
+                            </div>
+                            <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
+                            
+                            <div class="d-flex justify-content-between text-xs text-white mb-1 mt-3">
+                                <span><i class="fa-solid fa-droplet text-blue"></i> Agua Reciclada</span>
+                                <span class="text-neon font-bold">72% Reutilización</span>
+                            </div>
+                            <div class="bar-container"><div class="bar-fill" style="width: 72%;"></div></div>
+                            
+                            <div class="d-flex justify-content-between text-xs text-white mb-1 mt-3">
+                                <span><i class="fa-solid fa-wind text-blue"></i> Calidad del Aire</span>
+                                <span class="text-neon font-bold">90% Puro</span>
+                            </div>
+                            <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-panel text-left">
+                        <h4 class="text-white mb-3"><i class="fa-solid fa-chart-line text-blue"></i> Dashboard Administrativo</h4>
+                        <p class="text-sm text-muted mb-3">Zonas detectadas con mayor alerta.</p>
+                        <ol class="text-white text-sm" style="padding-left: 20px; line-height: 2;">
+                            <li class="mb-2">Zona Norte <span class="badge badge-green ml-2">+ Riesgo</span></li>
+                            <li class="mb-2">Centro Histórico <span class="badge badge-outline-green ml-2">Moderado</span></li>
+                            <li class="mb-2">Periférico Sur <span class="badge badge-outline-blue ml-2">Bajo Riesgo</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 pt-3 border-top" style="border-color: rgba(255,255,255,0.1) !important;">
+                <h3 class="text-white mt-4">Explora el Catálogo Completo</h3>
+                <div class="catalog-grid-6 mt-4 text-left">
+                    <div class="glass-panel p-0 catalog-item">
+                        <img src="/media/cursos_img/image.png" class="catalog-img">
+                        <div class="p-3">
+                            <span class="badge badge-outline-blue mb-2">Proyecto A</span>
+                            <h5 class="text-white">Boulevard Inteligente</h5>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-0 catalog-item">
+                        <img src="/media/cursos_img/image copy.png" class="catalog-img">
+                        <div class="p-3">
+                            <span class="badge badge-outline-green mb-2">Proyecto B</span>
+                            <h5 class="text-white">Corredor Verde</h5>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-0 catalog-item">
+                        <img src="/media/cursos_img/image copy 2.png" class="catalog-img">
+                        <div class="p-3">
+                            <span class="badge badge-outline-blue mb-2">Proyecto C</span>
+                            <h5 class="text-white">Estación de Drones</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

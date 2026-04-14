@@ -1,0 +1,55 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Smart City XR | Contacto y Cotización{% endblock %}
+
+{% block contenido %}
+<div style="padding-top: 100px; min-height: 80vh;">
+    <!-- CONTACTO (Formulario de Cotización) -->
+    <section class="pt-5 pb-5 bg-light-panel" style="border-top: 4px solid var(--accent-neon);">
+        <div class="container">
+            <div class="dashboard-grid align-items-center">
+                <!-- Columna Izquierda: Mapa Wireframe -->
+                <div class="text-center relative">
+                    <h2 class="text-main mb-4 font-bold">Ubicación Estratégica</h2>
+                    <div class="relative inline-block mx-auto" style="max-width: 500px;">
+                        <img src="/media/cursos_img/wireframe_map.png" alt="Mapa Morelia" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                            <i class="fa-solid fa-location-dot text-neon" style="font-size: 3rem; filter: drop-shadow(0 0 15px rgba(50,205,50,0.8));"></i>
+                        </div>
+                        <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(255,255,255,0.9); padding: 5px 12px; border-radius: 4px;">
+                            <span class="text-xs text-main font-bold">Base de Operaciones</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha: Formulario -->
+                <div class="glass-panel text-left" style="background: white; border: 1px solid #dee2e6; box-shadow: 0 15px 35px rgba(0,0,0,0.08);">
+                    <h2 class="text-main mb-2 font-bold">Contáctanos</h2>
+                    <p class="text-muted mb-4">Cotiza tu proyecto de planeación urbana inmersiva y simulaciones.</p>
+                    
+                    <form action="#" method="POST">
+                        <div class="form-group mb-3">
+                            <label class="text-main font-semibold">Nombre Completo</label>
+                            <input type="text" class="form-control" placeholder="Ej. Juan Pérez" style="background: #f8f9fa; border-color:#ced4da; color: #333;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="text-main font-semibold">Email</label>
+                            <input type="email" class="form-control" placeholder="correo@organizacion.com" style="background: #f8f9fa; border-color:#ced4da; color: #333;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="text-main font-semibold">Organización / Dependencia</label>
+                            <input type="text" class="form-control" placeholder="Nombre de la empresa o gobierno" style="background: #f8f9fa; border-color:#ced4da; color: #333;">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="text-main font-semibold">Detalles de la Solicitud</label>
+                            <textarea class="form-control" placeholder="Describe los requerimientos de simulación 3D o infraestructura..." style="background: #f8f9fa; border-color:#ced4da; color: #333;"></textarea>
+                        </div>
+                        <!-- Este botón lo agregamos pero el form no se enviará realmente hasta tener views para él, sin embargo servirá el frontend como lo pidió -->
+                        <button type="submit" class="btn-cyber w-100" style="padding: 14px; font-size: 1.1rem; border-radius: 8px;" onclick="event.preventDefault(); alert('¡Gracias por tu interés! Solicitud enviada de prueba.');">Enviar Solicitud <i class="fa-solid fa-paper-plane ml-2"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
