@@ -1,0 +1,101 @@
+
+--- PAGE 1 ---
+CONSULTAS¡Realiza una copia de principal.html¡Este archivo tiene la consulta de alumnos que emplearemos para probar diferentes funciones de consulta.¡Nombra el archivo como consultas.html
+
+--- PAGE 2 ---
+¡Ingresa al módulo de administración y registra los siguientes alumnos:
+--- PAGE 3 ---
+CONSULTAR CON CONDICIÓN
+views.pyFunción FILTER# filter nos retornará los registros que coinciden con los parámetros de #búsqueda dados.def consultar1(request):#con una sola condiciónalumnos=Alumnos.objects.filter(carrera="TI")return render(request,"registros/consultas.html",{'alumnos':alumnos})
+--- PAGE 4 ---
+CONSULTAS CON CONDICIÓN
+urls.py¡Agregamos una nueva url:path('consultas1',views_registros.consultar1,name="Consultas"),
+--- PAGE 5 ---
+CONSULTAS CON CONDICIÓN¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultas1
+alumnos=Alumnos.objects.filter(carrera="TI")
+--- PAGE 6 ---
+CONSULTAR CON MULTIPLES CONDICIONES 
+views.pydef consultar2(request):#multiples condiciones adicionando .filter() se analiza #como ANDalumnos=Alumnos.objects.filter(carrera="TI").filter(turno="Matutino")return render(request,"registros/consultas.html",{'alumnos':alumnos})
+--- PAGE 7 ---
+urls.py¡Agregamos una nueva url:CONSULTAR CON MULTIPLES CONDICIONES path('consultas2',views_registros.consultar2,name="Consultas2"),
+--- PAGE 8 ---
+CONSULTAS¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultas2
+alumnos=Alumnos.objects.filter(carrera="TI").filter(turno="Matutino")
+--- PAGE 9 ---
+CONSULTAR SOLO CIERTOS CAMPOS
+views.pydef consultar3(request):#Si solo deseamos recuperar ciertos datos agregamos la #función only, listando los campos que queremos obtener de #la consulta emplear filter() o #en el ejemplo all()alumnos=Alumnos.objects.all().only("matricula", "nombre", "carrera", "turno", "imagen")return render(request,"registros/consultas.html",{'alumnos':alumnos})
+--- PAGE 10 ---
+urls.py¡Agregamos una nueva url:CONSULTAR SOLO CIERTOS CAMPOSpath('consultas3',views_registros.consultar3,name="Consultas3"),
+--- PAGE 11 ---
+CONSULTAR SOLO CIERTOS CAMPOS¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultas3
+alumnos=Alumnos.objects.all().only("matricula", "nombre", "carrera", "turno", "imagen")
+--- PAGE 12 ---
+CONSULTAR CON EXPRESIONES¡Podemos agregar expresiones de consulta colocando el nombre del campo dos guiones bajos y la expresión:campo__expresion¡Ejemplos de expresiones:¡__contains: LIKE¡__exact: IGUAL¡__iexact: NO DISTINGUE ENTRE MAYUSCULAS Y MINUSCULAS
+--- PAGE 13 ---
+CONSULTAR CON EXPRESIONES¡Ejemplos:¡__lt: MENOR QUE¡__lte: MENOR O IGUAL QUE¡__gt: MAYOR QUE¡__gte: MAYOR O IGUAL QUE¡__in:VERIFICA UN INTERVALO DE VALORES [1, 3, 4]¡__startswith: INICIA CON¡__endswith: TERMINA CON¡__range : BUSQUEDA POR RANGO DE FECHASDOCUMENTACIÓN OFICIAL: •https://docs.djangoproject.com/en/3.2/ref/models/expressions/•https://docs.djangoproject.com/en/3.2/ref/models/querysets/#field-lookups
+--- PAGE 14 ---
+CONSULTAR CON EXPRESIONES
+views.py__contains: LIKEdef consultar4(request):alumnos=Alumnos.objects.filter(turno__contains="Vesp")return render(request,"registros/consultas.html",{'alumnos':alumnos})
+--- PAGE 15 ---
+urls.py¡Agregamos una nueva url:CONSULTAR CON EXPRESIONESpath('consultas4',views_registros.consultar4,name="Consulta4"),
+--- PAGE 16 ---
+CONSULTAR CON EXPRESIONES¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultas4
+alumnos=Alumnos.objects.filter(turno__contains="Vesp")
+--- PAGE 17 ---
+CONSULTAR CON EXPRESIONES
+views.pydef consultar5(request):alumnos=Alumnos.objects.filter(nombre__in=["Juan", "Ana"])return render(request,"registros/consultas.html",{'alumnos':alumnos})__in:VERIFICA UN INTERVALO DE VALORES 
+--- PAGE 18 ---
+urls.pypath('consultas5',views_registros.consultar5,name="Consulta5"),¡Agregamos una nueva url:CONSULTAR CON EXPRESIONES
+--- PAGE 19 ---
+CONSULTAR CON EXPRESIONES¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultas5
+alumnos=Alumnos.objects.filter(nombre__in=["Juan", "Ana"])
+
+--- PAGE 20 ---
+CONSULTAR CON EXPRESIONES
+views.py__range : BUSQUEDA POR RANGO DE FECHASimport datetimedef consultar6(request):fechaInicio = datetime.date(2022, 7, 1)fechaFin = datetime.date(2022, 7, 13)alumnos=Alumnos.objects.filter(created__range=(fechaInicio,fechaFin))return render(request,"registros/consultas.html",{'alumnos':alumnos})
+--- PAGE 21 ---
+urls.pypath('consultas6',views_registros.consultar6,name="Consulta6"),¡Agregamos una nueva url:CONSULTAR CON EXPRESIONES
+--- PAGE 22 ---
+CONSULTAR CON EXPRESIONES
+fechaInicio = datetime.date(2021, 7, 1)fechaFin = datetime.date(2021, 7, 13)alumnos=Alumnos.objects.filter(created__range=(fechaInicio,fechaFin))Datos del administradorlist_display = ('matricula', 'nombre', 'carrera','turno', 'created')Para visualizar la fecha se coloco el campo created en la lista de campos a mostrar en el archivo admin.py
+Consulta a realizar sobre los datos
+--- PAGE 23 ---
+CONSULTAR CON EXPRESIONES¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultas6
+fechaInicio = datetime.date(2021, 7, 1)fechaFin = datetime.date(2021, 7, 13)alumnos=Alumnos.objects.filter(created__range=(fechaInicio,fechaFin))Salida
+
+--- PAGE 24 ---
+CONSULTAR ENTRE MODELOS - RELACIONESSi recuerdas, nuestro modelo de Alumnos está relacionado con un modelo comentario que administramos desde el módulo de admin:
+
+--- PAGE 25 ---
+CONSULTAR ENTRE MODELOS - RELACIONES
+views.py•Para realizar una consulta entre modelos, empleamos la función filter, pero en la condición es posible indicar el nombre del modelo y el campo que deseamos condicionar.•En nuestro ejemplo la condición es que el alumno este en comentario y que el comentario sea No Inscrito :def consultar7(request): #Consultando entre modelos    alumnos=Alumnos.objects.filter(comentario__coment__contains='No inscrito’) return render(request,"registros/consultas.html",{'alumnos':alumnos})
+--- PAGE 26 ---
+urls.pypath('consultas7',views_registros.consultar7,name="Consulta7"),¡Agregamos una nueva url:CONSULTAR ENTRE MODELOS - RELACIONES
+--- PAGE 27 ---
+CONSULTAR ENTRE MODELOS - RELACIONES¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultas7Salida
+alumnos=Alumnos.objects.filter(comentario__coment__contains='No Inscrito')
+--- PAGE 28 ---
+CONSULTAS DIRECTAS CON SQL
+--- PAGE 29 ---
+CONSULTAS DIRECTAS CON SQL¡Django permite realizar dos formas de consultas SQL:¡ORM (Object Relational Mappper): Permite interactuar con nuestra base de datos sin la necesidad de conocer SQL.¡Usando Manage.raw():  raw() es un método del administrador que se puede utilizar para realizar consultas SQL sin procesar que devuelven instancias de modelo, permite ejecutar SQL personalizado y directo.
+--- PAGE 30 ---
+CONSULTAS DIRECTAS CON SQL
+views.pydef consultasSQL(request): alumnos=Alumnos.objects.raw('SELECT  matricula,nombre, carrera, turno, imagen FROM registros_alumnos WHERE carrera="TI" ORDER BY  turno DESC’)return render(request,"registros/consultas.html",{'alumnos':alumnos})
+--- PAGE 31 ---
+urls.py¡Agregamos una nueva url:CONSULTAS DIRECTAS CON SQLpath('consultasSQL',views_registros.consultasSQL,name="sql"),¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultasSQL
+--- PAGE 32 ---
+CONSULTAS DIRECTAS CON SQL
+
+--- PAGE 33 ---
+CONSULTAS DIRECTAS CON SQLEn este mecanismo de consulta, tiene la restriccion de consultar el campo id ya que como identificador se toma como requerido para procesos que puedan ser requeridos en la aplicación. En nuestro caso el modelo de alumno no cuenta con llave primaria, sin embargo si accedemos a la estuctura de la tabla observarán que fue agregado automáticamente.
+
+--- PAGE 34 ---
+CONSULTAS DIRECTAS CON SQL
+views.pydef consultasSQL(request): alumnos=Alumnos.objects.raw('SELECT id,  matricula,nombre, carrera, turno, imagen FROM registros_alumnos WHERE carrera="TI" ORDER BY  turno DESC')return render(request,"registros/consultas.html",{'alumnos':alumnos})Agrega
+--- PAGE 35 ---
+CONSULTAS DIRECTAS CON SQL¡Ejecutamos servidor y accedemos a la ruta:¡http://127.0.0.1:8000/consultasSQL
+SELECT id,matricula,nombre,carrera,turno,imagen FROM registros_alumnos WHERE carrera="TI" ORDER BY turno DESC
+--- PAGE 36 ---
+ORMVS SQL
+--- PAGE 37 ---
+PARTICIPACIÓNORMSQL•VENTAJAS Y DESVENTAJAS•¿Por qué DJANGO apuesta por ORM?

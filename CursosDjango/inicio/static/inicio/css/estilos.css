@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #0f1014;
+    --card-bg: #16181d;
+    --card-border: #23252d;
+    --accent: #d8f368;
+    /* Un lima más suave y elegante */
+    --accent-hover: #e4f78a;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --font-main: 'Inter', sans-serif;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Utilities --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-lime {
+    color: var(--accent);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- Top Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+}
+
+/* --- Buttons --- */
+.btn-cyber {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-cyber:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px rgba(216, 243, 104, 0.4);
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10rem 0 8rem 0;
+    position: relative;
+}
+
+.subtitle-badge {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding: 6px 16px;
+    border: 1px solid rgba(216, 243, 104, 0.2);
+    border-radius: 30px;
+    background: rgba(216, 243, 104, 0.05);
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    max-width: 900px;
+    letter-spacing: -1.5px;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* --- About Section --- */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 3rem;
+}
+
+.about-xotc {
+    padding: 8rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.about-xotc p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* --- Features Grid --- */
+.why-use {
+    padding: 6rem 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.feature-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-box h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.feature-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- Courses Grid --- */
+.cursos-section {
+    padding: 6rem 0;
+}
+
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.curso-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.curso-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+}
+
+.curso-card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.curso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.curso-price {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.curso-format {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.curso-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+}
+
+.curso-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+.curso-meta {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.5rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.curso-meta i {
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+.curso-imagen {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--card-border);
+}
+
+/* --- Early Access --- */
+.early-access-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.early-access-card h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+}
+
+/* --- Footer --- */
+footer {
+    border-top: 1px solid var(--card-border);
+    padding: 3rem 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--text-main);
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-xotc {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .early-access-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 3rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

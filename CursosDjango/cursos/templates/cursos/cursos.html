@@ -1,0 +1,112 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+{% block titulo %}OASIS NEGRO | Catálogo de Cursos{% endblock %}
+
+{% block contenido %}
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="subtitle-badge">Educación Tech</div>
+        <h1>Construye tu futuro como desarrollador.</h1>
+        <p>Aprende de expertos, domina las herramientas modernas y destaca en la industria del software sin importar tu
+            nivel inicial.</p>
+        <a href="#cursos-disp" class="btn-cyber">
+            Ver Cursos Disponibles
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-xotc" id="about">
+        <div>
+            <h2 class="section-title">¿Qué es OASIS NEGRO?</h2>
+        </div>
+        <div>
+            <p>
+                OASIS NEGRO fomenta el aprendizaje intensivo de programación. Desarrolla tus habilidades
+                directamente con instructores experimentados, dejando de lado los tutoriales obsoletos y construyendo
+                proyectos reales que potencien tu portafolio.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Use Grid -->
+    <section class="why-use">
+        <h2 class="section-title text-center">Nuestra Metodología</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                <h4>Práctico</h4>
+                <p>Metodología basada en proyectos reales desde el día uno.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                <h4>Calidad</h4>
+                <p>Contenido revisado por ingenieros de las mejores compañías tech.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
+                <h4>Comunidad</h4>
+                <p>Acceso a ecosistemas de desarrolladores dispuestos a colaborar.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                <h4>Impacto Laboral</h4>
+                <p>Preparación intensiva para que consigas el rol que buscas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listado de Cursos -->
+    <section class="cursos-section" id="cursos-disp">
+        <h2 class="section-title">Catálogo</h2>
+
+        {% if cursos %}
+        <div class="cursos-grid">
+            {% for curso in cursos %}
+            <div class="curso-card">
+                {% if curso.imagen %}
+                <img src="{{ curso.imagen.url }}" alt="{{ curso.nombre }}" class="curso-imagen">
+                {% endif %}
+                <div class="curso-card-content">
+                    <div class="curso-header">
+                        <span class="curso-format">
+                            {% if curso.es_presencial %}
+                            PRESENCIAL
+                            {% else %}
+                            ONLINE
+                            {% endif %}
+                        </span>
+                        <span class="curso-price">${{ curso.costo }}</span>
+                    </div>
+                    <h3 class="curso-title">{{ curso.nombre }}</h3>
+                    <p class="curso-desc">{{ curso.descripcion|truncatewords:20 }}</p>
+                    <div class="curso-meta">
+                        <i class="fas fa-user-circle"></i> {{ curso.instructor }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p style="color: var(--text-muted);">Actualmente no hay cursos disponibles en el catálogo.</p>
+        {% endif %}
+    </section>
+
+    <!-- Early Access Section -->
+    <section class="why-use" id="early">
+        <div class="early-access-card">
+            <div>
+                <h2>Únete a la próxima generación</h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 500px;">
+                    Aplica ahora y obtén beneficios exclusivos para los primeros estudiantes registrados en nuestro
+                    ecosistema.
+                </p>
+            </div>
+            <a href="#" class="btn-cyber" style="padding: 16px 40px; font-size: 1.1rem;">
+                Comenzar Hoy
+            </a>
+        </div>
+    </section>
+</main>
+{% endblock %}

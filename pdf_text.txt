@@ -1,0 +1,87 @@
+TRABAJANDO CON GIT Y GITHUB
+CREACIÓN DE REPOSITORIO
+TRABAJANDO CON UN REPOSITORIO EN GITHUB
+¡ Necesitarás una cuenta en github y tener git en tu 
+computadora:  
+¡ https://github.com/
+¡ https://git-scm.com/
+REPOSITORIO
+¡ Ingresa a tu cuenta en github y procederémos a crear un nuevo repositorio:
+REPOSITORIO
+Puedes dar el nombre que gustes 
+a tu repositorio
+REPOSITORIO CREADO
+CLONANDO NUESTRO REPOSITORIO
+•
+En mi caso, mi proyecto prueba se encuentra en una carpeta proyectosDjango
+•
+Ubica la ubicación de tu proyecto y accede a ella desde la termina, solo a la ubicación NO A LA CARPETA DEL 
+PROYECTO.
+•
+Una vez en la carpeta verifica que git se encuentra instalado, ejecutando el comando git --version
+CLONANDO NUESTRO REPOSITORIO
+• Copia la dirección de tu repositorio en github
+• Clonaremos el repositorio con el comando:
+• git clone direccionDeTuRepositorio 
+CLONANDO NUESTRO REPOSITORIO
+• En tu carpeta se creó una copia del repositorio que emplearemos para sincronizar nuestro proyecto:
+•
+Moveremos nuestra carpeta del proyecto a la carpeta del 
+repositorio:
+DESPLIEGUE – CONFIGURACIÓN DE PAQUETES
+¡ Configurando paquetes en nuestro entornos virtual:
+¡ Realiza un pip list en tu terminal de tu proyecto prueba para verificar los 
+paquetes y versiones que necesitamos para nuestro proyecto:
+Mac: python3 -m pip list
+Windows: py -m pip list
+DESPLIEGUE - CONFIGURACIÓN DE PAQUETES
+¡ En la carpeta de nuestro proyecto , agrega un archivo 
+requirements.txt
+DESPLIEGUE - CONFIGURACIÓN DE PAQUETES
+¡ Registraremos en el archivo requirements.txt los paquetes requeridos acorde a las versiones de 
+su proyecto que consultaron anteriormente. RECUERDA QUE DEBE SR TUS VERSIONES
+¡ En mi caso:
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+• Accedemos a la carpeta del repositorio desde la terminal:
+• Ejecutamos el comando: git add .
+Lo anterior cargará todos los archivos a nuestro repositorio.
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+• Posteriormente aplicamos los cambios con el comando: git commit -m "Agregando proyecto prueba"
+Nota: -m indica que el texto es un comentario.
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+• IMPORTANTE: Si al ejecutar el commit te arroja un error de usuario, será 
+necesario que des de alta tu correo y usuario para identificarte, deberás ejecutar 
+los comandos:
+• git config --global user.email “tu Correo”
+• git config --global user.name “tu nombre”
+• Al terminar realiza nuevamente el commit
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+• Para finalizar y poder visulizar los cambios en nuestro repositorio ejecuta el 
+comando: git push origin master
+Nota: Si se te presenta algún error como el siguiente:
+• Emplea el comando: git push origin HEAD:master
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+• Se te solicitará tu usuario y contraseña de github para cargar los 
+cambios al repositorio, sin embargo tu contraseña no te servirá para 
+ingresar derivado de la nuevas políticas de git, es necesario generar un 
+token de acceso.
+•  Para ellos sigue las instrucciones de la página de github: 
+https://docs.github.com/es/authentication/keeping-your-account-and-
+data-secure/creating-a-personal-access-token
+• Nota: En el punto y asigna 90 días de espiración y en el punto 8 marca 
+todas las casillas para otorgar todos los permisos y 
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+• Ahora regresa a tu terminal, ingresa tu usuario y como contraseña coloca el 
+nuevo token para cargar los cambios al repositorio:
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+En nuestro repositorio, 
+observaremos que se nos 
+indica la recepción de 
+modificaciones en el 
+repositorio.
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+AÑADIR NUESTRO PROYECTO AL REPOSITORIO
+Ya podemos observar nuestro 
+proyecto en el repositorio.

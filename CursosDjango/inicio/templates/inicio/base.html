@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Cursos | Plataforma Tech{% endblock %}</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos Minimalistas -->
+    <link rel="stylesheet" href="{% static 'inicio/css/estilos.css' %}?v=6">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">
+                <span class="text-lime"><i class="fas fa-moon"></i></span> OASIS NEGRO
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="#about">¿Por qué nosotros?</a></li>
+                <li><a href="{% url 'Principal' %}">Cursos</a></li>
+            </ul>
+            <a href="{% url 'Principal' %}" class="btn-cyber">
+                Explorar Catálogo <i class="fas fa-arrow-right"></i>
+            </a>
+        </nav>
+
+        {% block contenido %}
+        {% endblock %}
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-moon text-lime" style="margin-right:8px;"></i> OASIS NEGRO
+                </div>
+                <div class="footer-links">
+                    <a href="#">Términos</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Contacto</a>
+                </div>
+                <div style="color: var(--text-muted);">
+                    &copy; 2026 OASIS NEGRO.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Interacciones DOM Suaves -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Scroll Reveal Suave
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const animElements = document.querySelectorAll('.curso-card, .feature-box, .early-access-card');
+            animElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
